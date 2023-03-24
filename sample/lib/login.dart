@@ -19,12 +19,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyApp> {
+  var host;
+  
+  
+
   get children => null;
 
 
  
   @override
   Widget build(BuildContext context) {
+    Column child;
     return Scaffold(
             body:  SingleChildScrollView(
               child: Column(
@@ -38,10 +43,13 @@ class _MyWidgetState extends State<MyApp> {
                         image: DecorationImage(
                       fit: BoxFit.fill,
                       image: AssetImage('images/kpr.jpg'),
+                      
                     )),
                     height: 200.0,
                     width: 400.0,
-                  ),
+
+
+                  ), 
                 
                ],
               ),
@@ -49,6 +57,7 @@ class _MyWidgetState extends State<MyApp> {
                       Container(
                       height:120,
                       width: 120,
+                    
                       decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.fill,
@@ -83,65 +92,125 @@ class _MyWidgetState extends State<MyApp> {
                 const SizedBox(
                   height: 30,
                 ),
-                 Container(
-                       
-                        
-                       child:Text(
-                        'Name',
-                        style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 158, 154, 164),
-                        
+                
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Container(
+                         
+                          alignment: Alignment.topLeft,
+                         child:Text(
+                          'Name',
+                          style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 158, 154, 164),
+                          
+                      ),
                     ),
-                  ),
+                        
+                         ),
+                         
+                         
+                    ),
+                    child = Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          TextFormField(
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                                prefixIcon: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        new Radius.circular(10.0))),
+                                labelStyle: TextStyle(color: Colors.white)),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
+                            controller: host,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Empty value";
+                              }
+                            },
+                          ),
                   
-                  
-        ),
          const SizedBox(
           height: 30,
          ),
-              Container(
-                      child:Text(
-                        'Year Of Study',
-                        style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 158, 154, 164),
-                        
+         
+             Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Container(
+                         
+                         alignment: Alignment.topLeft,
+
+                         child:Text(
+                          'Year Of Study',
+                          style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 158, 154, 164),
+                          
+                      ),
                     ),
-                  ),  
-              ),
+                        
+                         ),
+                         
+                         
+                    ),
+                    child = Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          TextFormField(
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                                prefixIcon: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                        new Radius.circular(10.0))),
+                                labelStyle: TextStyle(color: Colors.white)),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
+                            controller: host,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Empty value";
+                              }
+                            },
+                          ), 
+            
 
 
 const SizedBox(
                   height: 30,
                 ),
-                 ConstrainedBox(
-    constraints: new BoxConstraints(
-      minHeight: 20.0,
-      minWidth: 80.0,
-    ),
-                 ),
-                SizedBox(width: 185,),
               
-                ElevatedButton(onPressed: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>onboardingp3()));
-               },
-                child:Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 14),
-                child:  Row
-               (
-                children:[ Container(
-                  child: Text("Submit ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)),
+                Row(
+               
+              mainAxisAlignment: MainAxisAlignment.center,
+              
+
+              children: [SizedBox(width: 250,),ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>onboardingp3()));
+              }, child:Padding(padding: EdgeInsets.symmetric(horizontal: 15,vertical: 14),child:  Row
+              (children:[ Text("Submit  ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                ]),)),
               
-              
-                     
-                  
-                    
-                  ],
-              ),
-              
+              ],
+
             )
-    );
+             ],
+              ),
+                ]),
+            ])
+    ),);
   }
   
   onboardingp3() {}
