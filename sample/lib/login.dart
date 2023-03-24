@@ -39,13 +39,30 @@ class _MyWidgetState extends State<MyApp> {
               child: Stack(
                 children: [
                   Container(
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          bottom: -7,
+                          left: 160,
+                          child: Container(
+                            height: 75,
+                            width: 80,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('images/logo.png'),
+                                fit: BoxFit.fill,
+                              )
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       fit: BoxFit.fill,
                       image: AssetImage('images/kpr.jpg'),
-                      
                     )),
-                    height: 200.0,
+                    height: 250.0,
                     width: 400.0,
 
 
@@ -54,23 +71,13 @@ class _MyWidgetState extends State<MyApp> {
                ],
               ),
                       ),
-                      Container(
-                      height:120,
-                      width: 120,
-                    
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                        image: AssetImage('images/logo.png'),
-                        
-                      )),
-                    ),
+                      
                   const SizedBox(
                     height: 10,
                   ),
                  Container(
                   child:Text(
-                    'LETS KNOW YOU',
+                    "Let's know you",
                     style: TextStyle(
                       fontSize: 20,
                       color: Color.fromARGB(255, 32, 8, 78),
@@ -82,7 +89,7 @@ class _MyWidgetState extends State<MyApp> {
                   ),
                   Container(
                   child:Text(
-                    'BETTER',
+                    'better',
                     style: TextStyle(
                       fontSize: 20,
                       color: Color.fromARGB(255, 32, 8, 78),
@@ -92,9 +99,28 @@ class _MyWidgetState extends State<MyApp> {
                 const SizedBox(
                   height: 30,
                 ),
-                
-                 Padding(
+                Container(
+                  height: 300,
+                  width: 320,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+      BoxShadow(
+        color: Color(0xffDDDDDD),
+        blurRadius: 3.0,
+        spreadRadius:   0,
+        offset: Offset(0.0, 0.0),
+      )
+    ],
+
+                  ),
+                  child: Column(
+                    children: [
+
+                      Padding(
                    padding: const EdgeInsets.all(8.0),
+                   
                    child: Container(
                          
                           alignment: Alignment.topLeft,
@@ -115,18 +141,25 @@ class _MyWidgetState extends State<MyApp> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           TextFormField(
+                            
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
+                               contentPadding: const EdgeInsets.all(20),
+
+                              filled: true, fillColor: Color.fromARGB(245, 245, 245, 245),
                                 prefixIcon: Padding(
                                   padding: EdgeInsets.all(8.0),
                                 ),
+                         
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(
-                                        new Radius.circular(10.0))),
-                                labelStyle: TextStyle(color: Colors.white)),
+                                    
+                                    new Radius.circular(10.0))),
+                                labelStyle: TextStyle(color: Color.fromARGB(245, 245, 245, 245))),
+                                
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 6, 6, 6),
                               fontSize: 14,
                             ),
                             controller: host,
@@ -135,10 +168,13 @@ class _MyWidgetState extends State<MyApp> {
                                 return "Empty value";
                               }
                             },
+
+
                           ),
-                  
-         const SizedBox(
-          height: 30,
+                        ],
+                    ),
+                    const SizedBox(
+          height: 20,
          ),
          
              Padding(
@@ -165,14 +201,19 @@ class _MyWidgetState extends State<MyApp> {
                         children: <Widget>[
                           TextFormField(
                             keyboardType: TextInputType.number,
+                            
                             decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.all(20),
+                                filled: true, fillColor: Color.fromARGB(245, 245, 245, 245),
+                                
                                 prefixIcon: Padding(
                                   padding: EdgeInsets.all(8.0),
                                 ),
                                 border: OutlineInputBorder(
+                                  
                                     borderRadius: BorderRadius.all(
-                                        new Radius.circular(10.0))),
-                                labelStyle: TextStyle(color: Colors.white)),
+                                        new Radius.circular(10))),
+                                labelStyle: TextStyle(color: Color.fromARGB(245, 245, 245, 245))),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.black,
@@ -184,7 +225,38 @@ class _MyWidgetState extends State<MyApp> {
                                 return "Empty value";
                               }
                             },
-                          ), 
+                          ),
+                    
+                        
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                 Row(
+               
+              mainAxisAlignment: MainAxisAlignment.center,
+              
+
+              children: [SizedBox(width: 150,),ElevatedButton(onPressed: (){
+                color:Color.fromARGB(171, 2, 3, 55);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>onboardingp3()));
+              }, child:Padding(padding: EdgeInsets.symmetric(horizontal: 15,vertical: 14),child:  Row
+              (children:[ Text("Submit ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+               ]),)),
+              
+              ],
+
+            )
+                    ]
+                  )
+                ),
+                  
+          
+                
+
+                
+                 
             
 
 
@@ -192,25 +264,15 @@ const SizedBox(
                   height: 30,
                 ),
               
-                Row(
-               
-              mainAxisAlignment: MainAxisAlignment.center,
-              
-
-              children: [SizedBox(width: 250,),ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>onboardingp3()));
-              }, child:Padding(padding: EdgeInsets.symmetric(horizontal: 15,vertical: 14),child:  Row
-              (children:[ Text("Submit  ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-               ]),)),
               
               ],
 
             )
-             ],
+             
               ),
-                ]),
-            ])
-    ),);
+                
+            
+    );
   }
   
   onboardingp3() {}
